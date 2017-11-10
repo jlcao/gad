@@ -18,11 +18,11 @@ public class RemotePlanDTO implements Serializable {
 
     private Boolean success;
 
-    private List<?> expressionName;
+    private List<PlanDetailDTO> expressionName;
 
     private String firstPlanResult;
 
-    private List<?> fvList;
+    private List<FvDTO> fvList;
 
     public Boolean getLoginStatus() {
         return loginStatus;
@@ -40,11 +40,11 @@ public class RemotePlanDTO implements Serializable {
         this.success = success;
     }
 
-    public List<?> getExpressionName() {
+    public List<PlanDetailDTO> getExpressionName() {
         return expressionName;
     }
 
-    public void setExpressionName(List<?> expressionName) {
+    public void setExpressionName(List<PlanDetailDTO> expressionName) {
         this.expressionName = expressionName;
     }
 
@@ -56,11 +56,11 @@ public class RemotePlanDTO implements Serializable {
         this.firstPlanResult = firstPlanResult;
     }
 
-    public List<?> getFvList() {
+    public List<FvDTO> getFvList() {
         return fvList;
     }
 
-    public void setFvList(List<?> fvList) {
+    public void setFvList(List<FvDTO> fvList) {
         this.fvList = fvList;
     }
 }
