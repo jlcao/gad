@@ -72,8 +72,14 @@ public class CpxzsBizServiceImpl implements CpxzsBizService {
             refreshPeriod();
 
             if (newPeriodFlage) {
+                // 处理远程数据
+
                 newPeriodFlage = false;
                 RemotePlanDTO remotePlanDTO = getPlanList(config);
+
+                // 判断当前要处理的数据是否是 在集合内
+
+                remotePlanDTO.getFvList();
 
 
 
