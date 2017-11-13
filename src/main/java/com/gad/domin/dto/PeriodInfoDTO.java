@@ -23,6 +23,16 @@ public class PeriodInfoDTO {
     private String nextPeriodStr;
 
     /**
+     * 日期
+     */
+    private String day;
+
+    /**
+     * 期数
+     */
+    private String item;
+
+    /**
      * 剩余开奖小时数
      */
     private Integer hour;
@@ -40,6 +50,9 @@ public class PeriodInfoDTO {
     }
 
     public void setNextPeriodStr(String nextPeriodStr) {
+        String str[] = nextPeriodStr.split("-");
+        this.day = str[0];
+        this.item = str[1];
         this.nextPeriodStr = nextPeriodStr;
     }
 
@@ -51,6 +64,22 @@ public class PeriodInfoDTO {
         this.hour = hour;
     }
 
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getItem() {
+        return item;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
     @Override
     public String toString() {
         return "PeriodInfoDTO{" +
@@ -59,4 +88,6 @@ public class PeriodInfoDTO {
                 ", hour=" + hour +
                 '}';
     }
+
+
 }

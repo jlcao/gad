@@ -23,6 +23,10 @@ public class FvDTO implements Serializable {
      */
     private String result;
 
+
+
+
+
     public String getItem() {
         return item;
     }

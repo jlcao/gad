@@ -8,6 +8,7 @@ package com.gad.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.gad.common.FileUtils;
+import com.gad.domin.dto.FvDTO;
 import com.gad.domin.dto.PeriodInfoDTO;
 import com.gad.domin.dto.RemotePlanDTO;
 import com.gad.domin.dto.PlanConfig;
@@ -77,10 +78,22 @@ public class CpxzsBizServiceImpl implements CpxzsBizService {
                 newPeriodFlage = false;
                 RemotePlanDTO remotePlanDTO = getPlanList(config);
 
-                // 判断当前要处理的数据是否是 在集合内
+                // 判断是否是可以下单的
+                List<FvDTO> fvs = remotePlanDTO.getFvList();
 
-                remotePlanDTO.getFvList();
+                Boolean bl = Boolean.TRUE;
+                for (FvDTO fv : fvs) {
+                    if (nowPeriod.getItem().compareTo(fv.getItem()) > 0) {
+                        bl = Boolean.FALSE;
+                    }
+                }
 
+                if (bl) {
+                    //
+
+
+
+                }
 
 
             }
@@ -107,6 +120,9 @@ public class CpxzsBizServiceImpl implements CpxzsBizService {
         if (newPeriod.getHour() == 0 && newPeriod.getMinute() <= 3) {
             this.nowPeriod = newPeriod;
             newPeriodFlage = Boolean.TRUE;
+        }
+        if (nowPeriod == null) {
+            this.nowPeriod = newPeriod;
         }
     }
 
@@ -198,11 +214,11 @@ public class CpxzsBizServiceImpl implements CpxzsBizService {
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        login("YuYuYuYu", "py2008221");
+        //login("YuYuYuYu", "py2008221");
         Thread.sleep(1000);
         System.out.println();
         System.out.println();
-        System.out.println("===============" + getPvList(1, 5, 3, "ssc040"));
+        System.out.println("===============" + getPvList(5, 5, 3, "ssc022"));
         System.out.println();
         System.out.println("==============="+getNextPeriod());
     }
